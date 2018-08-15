@@ -1,0 +1,4 @@
+pytesseract==0.1.7
+scikit-image==0.14.0
+scipy==1.1.0
+tesseract==0.1.3
