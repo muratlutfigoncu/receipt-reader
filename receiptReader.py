@@ -48,7 +48,7 @@ def imageProcesser(imagePath):
 	# find the contours in the edged image, keeping only the
 	# largest ones, and initialize the screen contour
 	cnts = cv2.findContours(edged.copy(), cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
-	cnts = cnts[0] if imutils.is_cv2() else cnts[1]
+	cnts = cnts[0]
 	cnts = sorted(cnts, key = cv2.contourArea, reverse = True)[:5]
 	 
 	# loop over the contours
@@ -125,10 +125,10 @@ def imageOcr(filename):
 			data["Place"].append(x)
 
 		if date_Regex.match(x):
-			data.Date.append(x)
+			data["Date"].append(x)
 
 		if amount_Regex.match(x):
-			data.Amount.append(x)
+			data["Amount"].append(x)
 
 		if receipt_No_Regex.match(x):
 			data['Receipt Number'].append(x)
